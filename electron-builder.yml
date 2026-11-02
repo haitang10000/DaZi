@@ -1,0 +1,39 @@
+appId: com.keypath.typing
+productName: 键径 KeyPath
+copyright: Copyright © 2026 KeyPath contributors
+
+directories:
+  output: release
+  buildResources: build
+
+files:
+  - dist/**/*
+  - electron/**/*
+  - build/icon.ico
+  - package.json
+  - "!node_modules/**/*"
+  - "!keypath-data.json"
+  - "!keypath-data.json.tmp"
+
+asar: true
+compression: normal
+npmRebuild: false
+
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  icon: build/icon.ico
+  executableName: KeyPath
+  artifactName: KeyPath-Setup-${version}.${ext}
+
+nsis:
+  oneClick: true
+  perMachine: false
+  allowElevation: false
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: 键径 KeyPath
+  uninstallDisplayName: 键径 KeyPath
+  deleteAppDataOnUninstall: false
